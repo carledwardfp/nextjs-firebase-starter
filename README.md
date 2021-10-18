@@ -1,34 +1,83 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js - Firebase(v9) Auth Starter
+
+## What's inside?
+
+This Starter includes [Firebase](https://firebase.google.com/) and [Next.js](https://nextjs.org). Firebase is a powerful development software built by Google. It includes Authentication, Database, Analytics, etc.
+
+To learn more about Firebase and Next.js, take a look at the following resources:
+
+- [Firebase](https://firebase.google.com/community/learn) - different learning pathways to integrate Firebase to your applications.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 ## Getting Started
 
-First, run the development server:
+1. Run the following command to create a new project with this Starter:
 
-```bash
-npm run dev
+```sh
+yarn create next-app [project-name] -e https://github.com/official-carledwardfp/nextjs-firebase-auth-starter
 # or
-yarn dev
+npx create-next-app [project-name] -e https://github.com/official-carledwardfp/nextjs-firebase-auth-starter
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```sh
+yarn
+# or
+npm install
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+3. Make sure that you have created a firebase application. Go to your [console](https://console.firebase.google.com/u/0/) and create a project.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+4. Change `.env.local.example` to `.env.local` and add your firebase config. You can remove keys that you do not need.
 
-## Learn More
+```
+NEXT_PUBLIC_FIREBASE_API_KEY=
+NEXT_PUBLIC_FIREBASE_APP_ID=
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+```
 
-To learn more about Next.js, take a look at the following resources:
+5. Try the starter!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+yarn dev
+# or
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000) with your browser and see how the starter works!
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This Starter uses the latest version of Firebase (v9 modular SDK)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```js
+// components/Auth/auth.js
+
+const firebaseApp = initializeApp(config); // initializes app
+const auth = getAuth(firebaseApp); // get auth instance from initialized app
+```
+
+A hook can be imported where you can access the user and the firebase functions defined in `auth.js`.
+
+Example:
+
+```js
+// pages/login.js
+
+const auth = useAuth();
+
+const signIn = (email, password) => {
+  auth.signIn(email, password).then(() => {
+    // do something
+  });
+};
+```
+
+## Notes
+
+Feel free to add Issues if you find any. Thank you!
