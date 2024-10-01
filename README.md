@@ -14,9 +14,9 @@ To learn more about Firebase and Next.js, take a look at the following resources
 1. Run the following command to create a new project with this Starter:
 
 ```sh
-yarn create next-app [project-name] -e https://github.com/official-carledwardfp/nextjs-firebase-auth-starter
+yarn create next-app [project-name] -e https://github.com/carledwardfp/nextjs-firebase-auth-starter
 # or
-npx create-next-app [project-name] -e https://github.com/official-carledwardfp/nextjs-firebase-auth-starter
+npx create-next-app [project-name] -e https://github.com/carledwardfp/nextjs-firebase-auth-starter
 ```
 
 2. Install dependencies
